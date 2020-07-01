@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="country"
+            type="com.oguncan.countriesmvvm.model.Country" />
+        <variable
+            name="listener"
+            type="com.oguncan.countriesmvvm.adapter.CountryClickListener" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:onClick="@{listener::onCountryClick}"
+        android:orientation="horizontal"
+        android:layout_height="150dp">
+
+        <TextView
+            android:id="@+id/txtCountryUuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(country.uuid)}"/>
+
+        <ImageView
+            android:downloadURL="@{country.countryImageURL}"
+            android:id="@+id/imgViewCountryFlag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="3dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtFeedCountryName"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:text="@{country.countryName}"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/txtFeedCountryRegion"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@{country.countryRegion}"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

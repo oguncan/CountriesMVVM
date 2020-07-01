@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="selectedCountry"
+            type="com.oguncan.countriesmvvm.model.Country" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailFragment">
+
+
+    <ImageView
+        android:id="@+id/imgViewDetailCountryFlag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:scaleType="fitCenter"
+        android:minHeight="200dp"
+        android:downloadURL="@{selectedCountry.countryImageURL}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtViewDetailFragmentCountryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{selectedCountry.countryName}"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgViewDetailCountryFlag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewDetailCountryFlag" />
+
+    <TextView
+        android:id="@+id/txtViewDetailFragmentCountryCapital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{selectedCountry.countryCapital}"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtViewDetailFragmentCountryName"
+        app:layout_constraintStart_toStartOf="@+id/txtViewDetailFragmentCountryName"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewDetailFragmentCountryName" />
+
+    <TextView
+        android:id="@+id/txtViewDetailFragmentCountryRegion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{selectedCountry.countryRegion}"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtViewDetailFragmentCountryCapital"
+        app:layout_constraintStart_toStartOf="@+id/txtViewDetailFragmentCountryCapital"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewDetailFragmentCountryCapital" />
+
+    <TextView
+        android:id="@+id/txtViewDetailFragmentCountryCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{selectedCountry.countryCurrency}"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtViewDetailFragmentCountryRegion"
+        app:layout_constraintStart_toStartOf="@+id/txtViewDetailFragmentCountryRegion"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewDetailFragmentCountryRegion" />
+
+    <TextView
+        android:id="@+id/txtViewDetailFragmentCountryLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{selectedCountry.countryLanguage}"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtViewDetailFragmentCountryCurrency"
+        app:layout_constraintStart_toStartOf="@+id/txtViewDetailFragmentCountryCurrency"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewDetailFragmentCountryCurrency" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
